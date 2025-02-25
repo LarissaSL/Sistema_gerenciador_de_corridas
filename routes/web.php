@@ -9,3 +9,7 @@ Route::get('/', function () {
 Route::get('/teste', function () {
     return view('testing.test');
 });
+
+Route::get('/forcaErro', function() {
+    throw new Exception("Teste de erro no Laravel 11!");
+});
