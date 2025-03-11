@@ -43,6 +43,7 @@ class LoginController extends Controller
         }
 
         // Autenticação falhou
+        Session::flash('email', $request->email);
         Session::flash('error', 'Não foi possivel autenticar o usuário. Verifique seu e-mail e senha por favor.');
         return redirect()->route('login.home');
     }
