@@ -12,6 +12,10 @@ class CheckEmail extends Component
     public $isAdmin = true; 
     public $user = '';
 
+    public function mount(){
+        $this->email = old('email', session('email'));
+    }
+
     public function checkEmail()
     {
         // Verifica se o usuário existe e se ele é administrador
