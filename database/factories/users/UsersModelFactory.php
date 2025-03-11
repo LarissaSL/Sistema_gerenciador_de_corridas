@@ -24,8 +24,17 @@ class UsersModelFactory extends Factory
             'last_name' => $this->faker->lastName(),
             'phone' => $this->faker->numerify('(##) 9 ####-####'),
             'email' => $this->faker->unique()->safeEmail(),
-            'password' => static::$password ??= Hash::make('password'),
+            'password' => static::$password ??= Hash::make('12345678'),
             'status' => 1,
         ];
+    }
+
+    // Permite criar um usuário com e-mail fixo
+    public function withFixedEmail(string $email): self
+    {
+        return $this->state([
+            'email' => $email,
+            'password' => Hash::make('12345678'),
+        ]);
     }
 }
