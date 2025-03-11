@@ -23,7 +23,7 @@ class AdministratorsModel extends Model
 
     // Um administrador é um usuário
     public function user() {
-        return $this->belongsTo(UsersModel::class);
+        return $this->belongsTo(UsersModel::class, 'user_id', 'id');
     }
 
     // Um administrador pode ter vários tokens de Login
