@@ -1,9 +1,17 @@
 <?php
 
+use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Login\LoginController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::controller(LoginController::class)->group(function () {
+    Route::get('/', 'index')->name('login.home');
+    Route::post('/login', 'login')->name('login.auth');
+});
+
+Route::controller(DashboardController::class)->group(function () {
+    Route::get('/dashboard', 'index')->name('dashboard');
 });
 
 Route::get('/teste', function () {
