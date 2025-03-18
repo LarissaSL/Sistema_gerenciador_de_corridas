@@ -17,6 +17,7 @@ class LoginTokenModel extends Model
         "token",
         "status",
         "attempt",
+        "expires_at",
         "administrator_id"
     ];
 
