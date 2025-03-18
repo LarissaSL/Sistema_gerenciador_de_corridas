@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Application\Login;
+namespace App\Application\Login\Login;
 
 use Exception;
 use Illuminate\Support\Facades\Auth;
