@@ -14,7 +14,7 @@ class ErrorNotify extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(string $message, bool $dismissible)
+    public function __construct(string $message, bool $dismissible = true)
     {
         $this->message = $message; 
         $this->dismissible = $dismissible;
