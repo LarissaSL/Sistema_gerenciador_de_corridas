@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Exo+2&display=swap" rel="stylesheet">
 </head>
 
-<body style="background: rgb(211, 211, 211)">
+<body style="background: rgb(211, 211, 211); padding: 40px">
     
     <!-- Main Body -->
     <table align="center" width="100%" cellpadding="0" cellspacing="0"
