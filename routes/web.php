@@ -26,6 +26,9 @@ Route::controller(RegisterController::class)->group(function () {
 
 Route::controller(ForgetPasswordController::class)->group(function () {
     Route::get('/forget-password', 'index')->name('forgetPassword');
+    Route::post('/forget-password/send-email', 'sendEmail')->name('forgetPassword.sendEmail');
+    Route::get('/forget-password/{token}/recover', 'recover')->name('forgetPassword.recover');
+    Route::post('/forget-password/{token}/update', 'updatePassword')->name('forgetPassword.updatePassword');
 });
 
 Route::controller(DashboardController::class)->group(function () {

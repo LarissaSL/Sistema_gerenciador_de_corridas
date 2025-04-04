@@ -15,7 +15,7 @@ class SucessNotify extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(string $message, bool $dismissible , ?string $email = null)
+    public function __construct(string $message, bool $dismissible = true , ?string $email = null)
     {
         $this->message = $message;
         $this->email = $email;

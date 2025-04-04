@@ -26,6 +26,11 @@ class AdministratorsModel extends Model
         return $this->belongsTo(UsersModel::class, 'user_id', 'id');
     }
 
+    // Método para encontrar o administrador de um usuário específico
+    public static function findAdministratorByUserId($userId){
+        return self::where('user_id', $userId)->first();
+    }
+
     // Um administrador pode ter vários tokens de Login
     public function loginTokens() {
         return $this->hasMany(LoginTokenModel::class);

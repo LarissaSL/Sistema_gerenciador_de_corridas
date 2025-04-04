@@ -2,6 +2,7 @@
 
 namespace App\Models\users;
 
+use App\Models\passwordResetToken\PasswordResetTokenModel;
 use App\Models\races\RacesModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -41,8 +42,24 @@ class UsersModel extends Authenticatable
         return $this->hasOne(AdministratorsModel::class, 'user_id', 'id');
     }
 
+    // Método para verificar se o usuário é um administrador
+    public function isAdministrator(){
+        return $this->administrator()->exists();
+    }
+ 
+    // Método para encontrar o usuário de um administrador específico
+    public static function findUserByAdministratorId($administratorId){
+        $administrator = AdministratorsModel::find($administratorId);
+        return $administrator ? $administrator->user : null;
+    }
+
     // Um usuário tem muitas inscrições em corridas
     public function races() {
         return $this->belongsToMany(RacesModel::class, 'inscriptions');
     }
+
+    public function passwordResetTokens()
+{
+    return $this->hasMany(PasswordResetTokenModel::class);
+}
 }
