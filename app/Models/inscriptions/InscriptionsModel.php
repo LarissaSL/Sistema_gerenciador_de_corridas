@@ -5,6 +5,7 @@ namespace App\Models\inscriptions;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\races\RacesModel; 
 
 class InscriptionsModel extends Model
 {
@@ -19,4 +20,9 @@ class InscriptionsModel extends Model
         'payment_method',
         'status'
     ];
+
+    public function race()
+    {
+        return $this->belongsTo(RacesModel::class, 'race_id');
+    }
 }
