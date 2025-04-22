@@ -23,13 +23,14 @@ class ForgetPasswordController extends Controller
     ) {}
 
     public function index(){
+        $title = 'Recuperar Senha';
         $email = session('email');
 
         if ($email) {
             session()->forget('email');
         }
 
-        return view('ForgotPassword.forgotPassword', compact ('email'));
+        return view('ForgotPassword.forgotPassword', compact ('email', 'title'));
     }
 
     public function sendEmail(Request $request) {
@@ -60,7 +61,8 @@ class ForgetPasswordController extends Controller
     }
 
     public function recover(RecoverTokenRequest $request, $token) {
-        return view('ForgotPassword.forgotPasswordRecover', compact ('token'));
+        $title = 'Recuperar Senha';
+        return view('ForgotPassword.forgotPasswordRecover', compact ('token', 'title'));
     }
 
     public function updatePassword(RecoverPasswordRequest $request, $token) {
