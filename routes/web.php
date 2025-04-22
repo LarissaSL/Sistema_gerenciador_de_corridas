@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\ApiDashboardController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Login\LoginController;
 use App\Http\Controllers\Login\TwoFactorAuthController;
@@ -33,6 +34,20 @@ Route::controller(ForgetPasswordController::class)->group(function () {
 
 Route::controller(DashboardController::class)->group(function () {
     Route::get('/dashboard', 'index')->name('dashboard');
+});
+
+// Rotas para devolução em JSON
+Route::prefix('v1')->group(function () {
+    Route::controller(ApiDashboardController::class)->group(function () {
+        Route::get('evolution/year={year}&month={month?}', 'evolutionAnnual')
+        ->where([
+            'year' => '\d{4}',
+            'month' => '\d{1,2}'
+        ])
+        ->name('dashboard.evolution.annual');
+        Route::get('evolution/finance-data', 'financeData')->name('dashboard.finance.data');
+        Route::get('evolution/races-data', 'racesData')->name('dashboard.races.data');
+    });
 });
 
 Route::get('/teste', function () {

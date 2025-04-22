@@ -1,6 +1,10 @@
 @extends('template.forgotPasswordTemplate')
 
 
+@section('title')
+    {{ $title }}
+@endsection
+
 @section('styles')
 <style>
     .strength-segments {

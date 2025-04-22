@@ -13,6 +13,6 @@ class UsersModelSeeder extends Seeder
     public function run(): void
     {
         // Criando 10 usuários
-        UsersModel::factory()->count(10)->create();    
+        UsersModel::factory()->count(1000)->create();    
     }
 }

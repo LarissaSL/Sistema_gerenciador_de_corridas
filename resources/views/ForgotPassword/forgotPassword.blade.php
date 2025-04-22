@@ -1,5 +1,9 @@
 @extends('template.forgotPasswordTemplate')
 
+@section('title')
+    {{ $title }}
+@endsection
+
 @section('content')
     <a href="{{ route('login.home') }}">
         <ion-icon name="arrow-back-outline"></ion-icon>

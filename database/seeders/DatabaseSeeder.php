@@ -4,6 +4,11 @@ namespace Database\Seeders;
 
 use App\Models\users\AdministratorsModel;
 use App\Models\users\UsersModel;
+use Database\Seeders\championship\ChampionshipsSeeder;
+use Database\Seeders\inscriptions\InscriptionsSeeder;
+use Database\Seeders\location\LocationsSeeder;
+use Database\Seeders\onlineLocation\OnlineLocationsSeeder;
+use Database\Seeders\races\RacesSeeder;
 use Database\Seeders\users\UsersModelSeeder;
 use Illuminate\Database\Seeder;
 
@@ -16,6 +21,14 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UsersModelSeeder::class,
+        ]);
+
+        $this->call([
+            LocationsSeeder::class,
+            OnlineLocationsSeeder::class,
+            ChampionshipsSeeder::class,
+            RacesSeeder::class,
+            InscriptionsSeeder::class,
         ]);
 
         // Criar o usuário Larissa
